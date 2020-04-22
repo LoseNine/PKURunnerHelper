@@ -5,5 +5,6 @@ PKURUNNER助手安卓版客户端
 ### 将Python程序改写成安卓移动应用
 
 # screenshot
-![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/2.PNG)
-![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/3.PNG)
+![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/1.png)
+![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/2.png)
+![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/3.png)
