@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#CD0000</color>
     <color name="colorAccent">#CD0000</color>
     <color name="back_blank">#FFEFDB</color>
+    <color name="black">#000000</color>
 </resources>

@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">PKURUNNER爱国版1.0</string>
+    <string name="app_name">PKURUNNER爱国版1.1</string>
     <string name="title_activity_login">IAAA登录</string>
+    <string name="use_know">使用须知</string>
     <string name="prompt_email">学号</string>
     <string name="prompt_password">密码</string>
     <string name="action_sign_in">登录</string>

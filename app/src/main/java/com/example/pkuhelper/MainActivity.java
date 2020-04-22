@@ -1,7 +1,10 @@
 package com.example.pkuhelper;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,6 +30,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
+
     private CustomVideoView welcome_video;
     private Button welcome_btn;
     private TextView Policy;
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         welcome_video = (CustomVideoView) findViewById(R.id.welcome_video);
         final String url = "android.resource://" + getPackageName() + "/" + R.raw.welcome_start;
         System.out.println(url);
@@ -131,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtra("username", username.getText().toString());
                             intent.putExtra("token",token);
                             startActivity(intent);
-
+                            finish();
                         }else {
                             Toast.makeText(MainActivity.this, "IAAA鉴权失败！", Toast.LENGTH_SHORT).show();
                         }
