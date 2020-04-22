@@ -329,7 +329,7 @@ class WeatherThread extends Thread {
             doc = con.get();
         } catch (IOException e) {
             System.out.println("upload error");
-            this.res="服务器停运!";
+            this.res="本学期暂未开始跑步!";
             return;
         }
         String htmlResult=doc.html();
@@ -370,7 +370,7 @@ class UserThread extends Thread {
             doc = con.get();
         } catch (IOException e) {
             System.out.println("upload error");
-            this.res="服务器暂时停运！";
+            this.res="本学期暂未开始跑步！";
             return;
         }
         String htmlResult=doc.html();

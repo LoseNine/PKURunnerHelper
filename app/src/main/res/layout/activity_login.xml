@@ -31,7 +31,9 @@
 
         android:hint="@string/prompt_email"
         android:inputType="number"
+        android:textColorHint="@color/black"
         android:selectAllOnFocus="true"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +47,8 @@
         android:layout_marginEnd="24dp"
 
         android:hint="@string/prompt_password"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
