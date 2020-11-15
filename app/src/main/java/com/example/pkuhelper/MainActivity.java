@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         //发起登录
                         mp.put("appId", AppID);
                         mp.put("randCode", "");
-                        mp.put("smsCode", "SMS");
+                        mp.put("smsCode", "");
                         mp.put("otpCode", "");
                         mp.put("userName", username.getText().toString());
                         mp.put("password", password.getText().toString());
@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         mp.clear();
 
                         String token=runT.getRunResult();
+                        System.out.println(token);
                         if (!token.equals("POSTERR")){
                             Toast.makeText(MainActivity.this, "鉴权成功！", Toast.LENGTH_SHORT).show();
 
@@ -165,6 +166,7 @@ class RunThread extends Thread {
     public void run() {
         try {
             this.token=Login(this.mp);
+            upload(this.token);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -219,8 +221,9 @@ class RunThread extends Thread {
         for (Map.Entry<String, String> entry : mp.entrySet()) {
             //添加参数
             con.data(entry.getKey(), entry.getValue());
-            con.header("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 8.0.0; MI 5 MIUI/V10.0.1.0.OAACNFH)");
+            //con.header("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 8.0.0; MI 5 MIUI/V10.0.1.0.OAACNFH)");
         }
+
         Document doc = null;
         try {
             doc = con.post();
@@ -232,6 +235,19 @@ class RunThread extends Thread {
         token=token.substring(25,token.length()-2);
         System.out.println(token);
         return token;
+    }
+
+    public String upload(String token){
+        Connection con = Jsoup.connect("https://pkunewyouth.pku.edu.cn/user");
+        con.header("User-Agent", "okhttp/3.10.0");
+        con.data("access_token",token);
+        Document doc = null;
+        try {
+            doc = con.post();
+        } catch (IOException e) {
+            return "UPLOAD";
+        }
+        return "DONE";
     }
     public String getRunResult() {
         if (this.token.contains("错误") || this.token.contains("err")){

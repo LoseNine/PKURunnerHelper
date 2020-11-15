@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:text="设置跑步距离: 5 km"/>
+                    android:text="设置跑步距离: 3 km"/>
 
                 <SeekBar
                     android:id="@+id/seekBar"
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
 
                     android:max="10"
-                    android:progress="5" />
+                    android:progress="3" />
 
                 <TextView
                     android:id="@+id/paceText"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:text="设置跑步速度: 5 min/km"/>
+                    android:text="设置跑步速度: 6 min/km"/>
 
                 <SeekBar
                     android:id="@+id/seekBarPace"
@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="10"
-                    android:progress="4" />
+                    android:progress="6" />
 
                 <TextView
                     android:id="@+id/frequencyText"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:text="迈步频率: 150 step/min"/>
+                    android:text="迈步频率: 156 step/min"/>
 
                 <SeekBar
                     android:id="@+id/seekBarFrequency"
@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="300"
-                    android:progress="150" />
+                    android:progress="156" />
 
             </LinearLayout>
 
