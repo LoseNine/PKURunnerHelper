@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.snail.antifake.jni.JniUtil;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -275,26 +276,35 @@ class UploadThread extends Thread {
         }
     }
 
-    public void upload(Record resultRecord) {
+
+    public void upload(Record resultRecord) throws IOException {
         Connection con = Jsoup.connect("https://pkunewyouth.pku.edu.cn/record/"+this.username);
+        con.header("User-Agent", "okhttp/3.10.0");
+        //System.out.println(this.token+"\n\tssssssssss");
+        con.header("Authorization",this.token);
+        Document doc = null;
+        String htmlResult;
         //遍历生成参数
         con.data("userId",this.username);
+        String date = String.valueOf(resultRecord.getDate_());
         con.data("duration",resultRecord.getDuration());
-        con.data("data",resultRecord.getData());
+        con.data("date",date);
         con.data("detail", resultRecord.getDetail());
         con.data("misc","{\"agent\": \"Android v1.2+\"}");
         con.data("step",resultRecord.getStep());
+        con.data("abstract",JniUtil.getSecret(this.username,date));
 
-        con.header("User-Agent", "okhttp/3.10.0");
-        con.header("Authorization",this.token);
+        System.out.println("Duration"+resultRecord.getDuration());
+        System.out.println("Detail"+resultRecord.getDetail());
+        System.out.println("Step"+resultRecord.getStep());
 
-        Document doc = null;
         try {
-            doc = con.post();
+            doc = con.ignoreContentType(true).post();
         } catch (IOException e) {
+            System.out.println(e);
             System.out.println("upload error");
         }
-        String htmlResult=doc.html();
+        htmlResult=doc.html();
         System.out.println(htmlResult);
     }
 //    public String getRunResult() {

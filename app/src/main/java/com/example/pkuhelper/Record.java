@@ -21,6 +21,7 @@ public class Record {
 
     private int duration=0;
     private String data;
+    private long date;
     private int step;
     private ArrayList<ArrayList<Double>> detail = new ArrayList<ArrayList<Double>>();
     public String getDuration(){
@@ -28,6 +29,10 @@ public class Record {
     }
     public String getData(){
         return this.data;
+    }
+    public long getDate_(){
+        Date curDate = new Date(System.currentTimeMillis());
+        return curDate.getTime();
     }
     public String getStep(){
         return ""+this.step;
@@ -74,13 +79,14 @@ public class Record {
         }
 
         double total_loop=this.Distance/0.4;
+        System.out.println(total_loop);
         double current_loop=0.0;
 
         while(current_loop<total_loop){
             System.out.println("current_Loop:"+current_loop+":total_loop:"+total_loop);
             points_num_per_loop=(int)(0.4*(this.Pace+getPaceDelta())*60);
             for(int i=0;i<points_num_per_loop;i++){
-                int idx= (int) Math.floor(i/points_num_per_loop*points_per_loop.size());
+                int idx= (int) Math.floor((double)i/(double)points_num_per_loop*points_per_loop.size());
                 JsonArray point=points_per_loop.get(idx).getAsJsonArray();
                 ArrayList<Double> point_two = new ArrayList<Double>();
                 double p0=point.get(0).getAsDouble()+getPointDelta();
