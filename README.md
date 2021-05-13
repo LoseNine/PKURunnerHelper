@@ -9,7 +9,7 @@ PKURUNNER助手安卓版客户端
 ![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/2.png)
 ![](https://github.com/LoseNine/PKURunnerHelper/blob/master/imgs/3.png)
 
-### 注意：由于我有些懒惰，不想改这个项目了
+### 注意：由于我有些懒惰，PKURUNNER又不停迭代版本，每次都要写，不想改这个项目了
 ### 我会把Python版本的关键参数放一下
 ### 2021-03-25修改了abstract参数
 ### 使用Python版本，只需要加上参数
